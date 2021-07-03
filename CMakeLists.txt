@@ -18,9 +18,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 if (USE_MYMATH)
     # adding the MathFunctions library
     add_subdirectory(MathFunctions)
-    # creating variables EXTRA_LIBS and EXTRA_INCLUDES
+    # creating variables EXTRA_LIBS
     list(APPEND EXTRA_LIBS MathFunctions)
-    list(APPEND EXTRA_INCLUDES "${PROJECT_SOURCE_DIR}/MathFunctions")
 endif()
 
 # add an executable
@@ -33,5 +32,4 @@ target_link_libraries(Test PUBLIC ${EXTRA_LIBS})
 # that we will find TestConfig.h
 target_include_directories(Test PUBLIC
     "${PROJECT_BINARY_DIR}"
-    ${EXTRA_INCLUDES}
 )
