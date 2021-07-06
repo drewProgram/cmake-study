@@ -33,3 +33,9 @@ target_link_libraries(Test PUBLIC ${EXTRA_LIBS})
 target_include_directories(Test PUBLIC
     "${PROJECT_BINARY_DIR}"
 )
+
+# install rules 
+install(TARGETS Test DESTINATION bin)
+install(FILES "${PROJECT_BINARY_DIR}/TestConfig.h"
+    DESTINATION include
+)

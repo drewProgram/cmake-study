@@ -28,4 +28,16 @@ cmake --build .
 The first command will generate the build files into the build folder and the second command will build and link the generated files. Then, you can execute the generated executable file.
 
 ## Adding a library
-To add a library to another a project, you need to create a CMakeLists in the library folder (see MathFunctions folder)
+To add a library to another a project, you need to create a CMakeLists in the library folder (see MathFunctions folder).
+
+## Installing project
+It's simple to install a project. You just need to use `install` commands with a couple of options, as you can see on the CMakeLists files. To install the project, you need to use the command (at the build folder):
+```cpp
+cmake ../
+cmake --build .
+cmake --install . --config Debug
+```
+The config flag is needed because in Visual Studio projects you have more than one build type. As it seems, the default on the install command is always Release, so we need to set to Debug the installation in order to work (unless you have builded the project in Release mode with `--build . -- config Release`).
+CMake will install the project by default at the C:/Program Files (x86)/{ProjectName}
+
+**Note: The terminal you're using needs to be executed with admin privileges in order to this command work.**
